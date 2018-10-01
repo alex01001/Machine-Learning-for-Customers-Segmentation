@@ -1,4 +1,4 @@
-# ML.-Creating-Customer-Segments
+# Machine Learning for Segmentation
 
 
 **Project Overview**
