@@ -12343,6 +12343,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>The correlation heatmap shows low correlation for most of the pairs. The highest correlation is demonstrated by Grocery and Detergent_Paper pair of products (0.92). High correlation of these two products is also visible on the scatter plot. While other pairs' data points are mostly consolidated around origin, the Grocery/Detergent_Paper pair's plot shows high dependency (one featue can be predicted using another feture's data). Second most correlated pair is Grocery/Milk (0.73).</p>
+<p>It appears that my assumption that 'Milk' feture would be hard to predict was wrong. 'Milk' shows some correlation with two other catgories, consequently, it may be possible to predict it.</p>
 <p>In general, data is skewed, not normally distributed. High concentration of data points around zero shows that majority of customers are reguar people or small businesses. Also, each plot has few outliers, which are wholesale buyers.</p>
 
 </div>
@@ -13353,7 +13354,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 <li>128 is in Fresh and Delicatessen.</li>
 <li>154 is in Milk, Delicatessen, and Grocery.</li>
 </ul>
-<p>Removing too many points may distort the dataset, which can lead to the loss of improtant information.</p>
+<p>It's important to remove outliers so they do not "confuse" the clustering algorithm. Removing too many points may distort the dataset, which can lead to the loss of improtant information.</p>
 
 </div>
 </div>
@@ -14166,10 +14167,13 @@ Sample point 2 predicted to be in Cluster 1
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>Sample point 0: Initial assumption (grocery store) confirmed.</li>
-<li>Sample point 1: Initial assumption (restaurant/cafe) confirmed.</li>
+<li><p>Sample point 1: Initial assumption (restaurant/cafe) confirmed. It is relatively close to the center of Cluster 0.</p>
+</li>
+<li><p>Sample point 0: Initial assumption (grocery store) confirmed.</p>
+</li>
 <li>Sample point 2: Initial assumption (wholsale retailer/supermarket) confirmed.</li>
 </ul>
+<p>Points 0 and 2 are located close to the center of Cluster 1, and perrty far from the center of Cluster 0, which leads to the conclusion that initial assumption was correct.</p>
 
 </div>
 </div>
@@ -14211,7 +14215,8 @@ Sample point 2 predicted to be in Cluster 1
 <p><strong>Answer:</strong></p>
 <p>Fresh products is the major category for the customers from Segment 0. Changing delivery service from 5 days a week to 3 days a week will affect these customers negatively.</p>
 <p>Custaomers from Segment 1 are already oriented to buy products with longer shelf life: 'Milk', 'Grocery', and 'Detergents_Paper'. In this sense, reducing the delivery frequency may not be critical for these customers (potentially, it can be positive).</p>
-<p>In this case, we can't assume that the changes will affect customer equally. Most probably, customers from Segment 0 will be affected most. I would recommend to perform A/B test before implementing the change.</p>
+<p>In this case, we can't assume that the changes will affect customer equally. Most probably, customers from Segment 0 will be affected most. One of the ways to confirm the assumptions is A/B test.</p>
+<p>When selecting data for the A/B test the company should makes sure both clusters are well represented, also it's important to keep the experiment group very similar to the control group. Otherwise, the results of the testing can be misleading.</p>
 
 </div>
 </div>
